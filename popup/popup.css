@@ -467,46 +467,19 @@ body {
   color: #888;
 }
 
-/* ─── Load settings ─── */
+/* ─── Secondary actions ─── */
 
-.load-settings {
+.secondary-actions {
   text-align: center;
-  padding: 0 20px 8px;
+  padding: 2px 20px 14px;
 }
-
-.btn-load {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 16px;
-  font-size: 12px;
-  font-weight: 500;
-  font-family: inherit;
-  color: #666;
-  background: none;
-  border: 1px solid #d4d4d4;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
-}
-
-.btn-load:hover {
-  border-color: #999;
-  color: #111;
-}
-
-.btn-load svg {
-  flex-shrink: 0;
-}
-
-/* ─── Per-site preset row ─── */
 
 .preset-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 0 20px 14px;
+  gap: 5px;
+  padding: 2px 0;
   font-size: 11px;
   color: #999;
 }
@@ -515,31 +488,26 @@ body {
   color: #888;
 }
 
-.preset-actions {
-  display: flex;
-  gap: 4px;
+.preset-sep {
+  color: #ccc;
 }
 
-.btn-preset {
-  padding: 3px 10px;
+.btn-text {
+  padding: 0;
   font-size: 11px;
-  font-weight: 500;
   font-family: inherit;
-  color: #666;
+  color: #999;
   background: none;
-  border: 1px solid #d4d4d4;
-  border-radius: 3px;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
+  text-decoration: none;
 }
 
-.btn-preset:hover {
-  border-color: #999;
+.btn-text:hover {
   color: #111;
 }
 
-.btn-preset--danger:hover {
-  border-color: #c00;
+.btn-text--danger:hover {
   color: #c00;
 }
 

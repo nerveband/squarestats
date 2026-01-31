@@ -138,25 +138,17 @@
       <!-- Extract Button -->
       <button id="btn-extract" class="btn-extract">Export CSV</button>
 
-      <!-- Load settings -->
-      <div class="load-settings">
+      <!-- Secondary actions -->
+      <div class="secondary-actions">
         <input type="file" id="yaml-input" accept=".yaml,.yml" style="display:none;">
-        <button id="btn-load-yaml" class="btn-load">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="17 8 12 3 7 8"/>
-            <line x1="12" y1="3" x2="12" y2="15"/>
-          </svg>
-          Load Settings
-        </button>
-      </div>
-
-      <!-- Per-site preset -->
-      <div id="preset-row" class="preset-row" style="display:none;">
-        <span id="preset-status" class="preset-status"></span>
-        <div class="preset-actions">
-          <button id="btn-preset-save" class="btn-preset">Save</button>
-          <button id="btn-preset-clear" class="btn-preset btn-preset--danger" style="display:none;">Clear</button>
+        <div id="preset-row" class="preset-row" style="display:none;">
+          <span id="preset-status" class="preset-status"></span>
+          <span class="preset-sep">&middot;</span>
+          <button id="btn-preset-save" class="btn-text">Save as default</button>
+          <button id="btn-preset-clear" class="btn-text btn-text--danger" style="display:none;">Clear</button>
+        </div>
+        <div class="preset-row">
+          <button id="btn-load-yaml" class="btn-text">Load settings from file</button>
         </div>
       </div>
     </div>

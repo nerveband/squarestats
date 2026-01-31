@@ -371,14 +371,17 @@
 
   function showPresetRow(hasSavedPreset) {
     els.presetRow.style.display = 'flex';
+    const sep = els.presetRow.querySelector('.preset-sep');
     if (hasSavedPreset) {
-      els.presetStatus.textContent = 'Saved preset loaded';
+      els.presetStatus.textContent = 'Default loaded';
       els.btnPresetSave.textContent = 'Update';
       els.btnPresetClear.style.display = '';
+      if (sep) sep.style.display = '';
     } else {
       els.presetStatus.textContent = '';
-      els.btnPresetSave.textContent = 'Save';
+      els.btnPresetSave.textContent = 'Save as default';
       els.btnPresetClear.style.display = 'none';
+      if (sep) sep.style.display = 'none';
     }
   }
 
