@@ -467,32 +467,77 @@ body {
   color: #888;
 }
 
-/* ─── Secondary actions ─── */
+/* ─── Settings box ─── */
 
-.secondary-actions {
-  text-align: center;
-  padding: 2px 20px 14px;
+.settings-box {
+  margin: 0 20px 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.preset-row {
+.settings-box-label {
+  padding: 7px 12px 5px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.settings-box-actions {
+  display: flex;
+  border-top: 1px solid #e6e6e6;
+}
+
+.settings-btn {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 2px 0;
+  padding: 9px 4px;
   font-size: 11px;
-  color: #999;
+  font-family: inherit;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+
+.settings-btn:not(:last-child) {
+  border-right: 1px solid #e6e6e6;
+}
+
+.settings-btn:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.settings-btn svg {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.settings-btn:hover svg {
+  opacity: 0.8;
 }
 
 .preset-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 11px;
   color: #888;
+  border-top: 1px solid #e6e6e6;
+  background: #fafafa;
 }
 
-.preset-sep {
-  color: #ccc;
-}
-
-.btn-text {
+.btn-text-inline {
   padding: 0;
   font-size: 11px;
   font-family: inherit;
@@ -500,14 +545,9 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  text-decoration: none;
 }
 
-.btn-text:hover {
-  color: #111;
-}
-
-.btn-text--danger:hover {
+.btn-text-inline:hover {
   color: #c00;
 }
 

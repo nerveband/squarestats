@@ -138,17 +138,39 @@
       <!-- Extract Button -->
       <button id="btn-extract" class="btn-extract">Export CSV</button>
 
-      <!-- Secondary actions -->
-      <div class="secondary-actions">
-        <input type="file" id="yaml-input" accept=".yaml,.yml" style="display:none;">
-        <div id="preset-row" class="preset-row" style="display:none;">
-          <span id="preset-status" class="preset-status"></span>
-          <span class="preset-sep">&middot;</span>
-          <button id="btn-preset-save" class="btn-text">Save as default</button>
-          <button id="btn-preset-clear" class="btn-text btn-text--danger" style="display:none;">Clear</button>
+      <!-- Settings actions -->
+      <input type="file" id="yaml-input" accept=".yaml,.yml" style="display:none;">
+      <div class="settings-box">
+        <div class="settings-box-label">Settings</div>
+        <div class="settings-box-actions">
+          <button id="btn-preset-save" class="settings-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Save as Default
+          </button>
+          <button id="btn-load-yaml" class="settings-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            Load from File
+          </button>
+          <button id="btn-export-yaml" class="settings-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Export to File
+          </button>
         </div>
-        <div class="preset-row">
-          <button id="btn-load-yaml" class="btn-text">Load settings from file</button>
+        <div id="preset-status" class="preset-status" style="display:none;">
+          <span id="preset-status-text"></span>
+          <button id="btn-preset-clear" class="btn-text-inline">Clear</button>
         </div>
       </div>
     </div>

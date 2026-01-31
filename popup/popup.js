@@ -26,10 +26,11 @@
     reportChecklist: document.getElementById('report-checklist'),
     completeSummary: document.getElementById('complete-summary'),
     completeFilename: document.getElementById('complete-filename'),
-    presetRow: document.getElementById('preset-row'),
     presetStatus: document.getElementById('preset-status'),
+    presetStatusText: document.getElementById('preset-status-text'),
     btnPresetSave: document.getElementById('btn-preset-save'),
     btnPresetClear: document.getElementById('btn-preset-clear'),
+    btnExportYaml: document.getElementById('btn-export-yaml'),
   };
 
   let siteInfo = null;
@@ -370,18 +371,12 @@
   }
 
   function showPresetRow(hasSavedPreset) {
-    els.presetRow.style.display = 'flex';
-    const sep = els.presetRow.querySelector('.preset-sep');
     if (hasSavedPreset) {
-      els.presetStatus.textContent = 'Default loaded';
-      els.btnPresetSave.textContent = 'Update';
+      els.presetStatus.style.display = 'flex';
+      els.presetStatusText.textContent = 'Default settings loaded for this site';
       els.btnPresetClear.style.display = '';
-      if (sep) sep.style.display = '';
     } else {
-      els.presetStatus.textContent = '';
-      els.btnPresetSave.textContent = 'Save as default';
-      els.btnPresetClear.style.display = 'none';
-      if (sep) sep.style.display = 'none';
+      els.presetStatus.style.display = 'none';
     }
   }
 
@@ -401,6 +396,49 @@
       sitePresetLoaded = false;
       showPresetRow(false);
     });
+  });
+
+  // Export settings to YAML file
+  els.btnExportYaml.addEventListener('click', () => {
+    const settings = getCurrentSettings();
+    const range = getDateRange();
+    if (!range) return;
+
+    const fmtDate = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const reportMap = {
+      traffic_overview: 'traffic',
+      traffic_sources: 'sources',
+      geography: 'geography',
+      popular_content: 'content',
+      sales_overview: 'sales',
+    };
+    const allReportIds = ['traffic_overview', 'traffic_sources', 'geography', 'popular_content', 'sales_overview'];
+
+    const lines = [
+      '# SquareStats Export Settings',
+      '# Load this file into SquareStats to reuse these settings.',
+      '',
+      'date_range:',
+      `  preset: ${settings.datePreset}`,
+      `  start: ${fmtDate(range.start)}`,
+      `  end: ${fmtDate(range.end)}`,
+      '',
+      `granularity: ${settings.granularity.toLowerCase()}`,
+      '',
+      'reports:',
+    ];
+    for (const id of allReportIds) {
+      lines.push(`  ${reportMap[id]}: ${settings.reports.includes(id)}`);
+    }
+    const yaml = lines.join('\n') + '\n';
+
+    const blob = new Blob([yaml], { type: 'text/yaml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'export-settings.yaml';
+    a.click();
+    URL.revokeObjectURL(url);
   });
 
   // Extract button
