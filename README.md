@@ -4,6 +4,12 @@
 
 Export your Squarespace traffic, sales, and content analytics to CSV. All data stays in your browser.
 
+<p align="center">
+  <img src="screenshots/main%20screen.png" alt="SquareStats main screen" width="360">
+  &nbsp;&nbsp;
+  <img src="screenshots/export%20screen.png" alt="SquareStats export in progress" width="360">
+</p>
+
 ## Install
 
 1. Download or clone this repository
